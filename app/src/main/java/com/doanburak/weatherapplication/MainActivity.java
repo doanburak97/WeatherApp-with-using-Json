@@ -12,6 +12,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     TextView tv_cityName, tv_weatherType, tv_temp, tv_upTemp, tv_lowTemp, tv_feels, tv_wind, tv_humidity;
-    ImageView iv_icon;
+    ImageView iv_icon, iv_searchCity;
 
     // http://api.openweathermap.org/data/2.5/weather?q=London&unit=metric&appid=33751e1f5b6103eb0b7003bfcd90e17b
 
@@ -56,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
         tv_humidity = findViewById(R.id.tv_humadity);
 
         iv_icon = findViewById(R.id.iv_icon);
+        iv_searchCity = findViewById(R.id.iv_searchCity);
+
+        iv_searchCity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toCityFinder = new Intent(MainActivity.this, cityFinderActivity.class);
+                startActivity(toCityFinder);
+            }
+        });
 
     }
 
@@ -182,9 +192,9 @@ public class MainActivity extends AppCompatActivity {
         tv_temp.setText(data.getmTemp());
         tv_upTemp.setText(data.getmUpTemp());
         tv_lowTemp.setText(data.getmLowTemp());
-        tv_feels.setText(data.getmFeels());
-        tv_wind.setText(data.getmWind());
-        tv_humidity.setText(data.getmHumidity());
+        tv_feels.setText(data.getmFeels() + "°");
+        tv_wind.setText(data.getmWind() + "km/h");
+        tv_humidity.setText("%" + data.getmHumidity());
 
         int resourceID = getResources().getIdentifier(data.getmIcon(),"drawable", getPackageName());
         iv_icon.setImageResource(resourceID);
