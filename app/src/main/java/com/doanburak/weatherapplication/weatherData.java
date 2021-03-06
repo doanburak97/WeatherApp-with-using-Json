@@ -9,15 +9,15 @@ public class weatherData {
     private int mCondition;
 
     public String getmTemp() {
-        return mTemp + "°C";
+        return mTemp + "°";
     }
 
     public String getmUpTemp() {
-        return mUpTemp + "°C";
+        return mUpTemp + "°";
     }
 
     public String getmLowTemp() {
-        return mLowTemp + "°C";
+        return mLowTemp + "°";
     }
 
     public String getmHumidity() {
