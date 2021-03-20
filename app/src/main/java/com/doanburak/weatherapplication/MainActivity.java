@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
     // http://api.openweathermap.org/data/2.5/weather?q=London&unit=metric&appid=33751e1f5b6103eb0b7003bfcd90e17b
 
-    final String APP_ID = "33751e1f5b6103eb0b7003bfcd90e17b";
-    final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
+    private final static String APP_ID = "33751e1f5b6103eb0b7003bfcd90e17b";
+    private final static String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
 
     final long MIN_TIME = 5000;
     final float MIN_DISTANCE = 1000;
